@@ -110,7 +110,7 @@ if($_SESSION['Status'] != "ADMIN")
 
 							<div class="contact-form-result"></div>
 
-							<form action="Testblog.php" id="template-jobform" name="template-jobform" method="post" role="form" enctype="multipart/form-data">
+							<form action="save_blog" id="template-jobform" name="template-jobform" method="post" role="form" enctype="multipart/form-data">
 
 								<div class="form-process"></div>
 
@@ -176,7 +176,7 @@ if($_SESSION['Status'] != "ADMIN")
 
 									<div class="col_half">
   									<label for="template-jobform-time">เลือกหมวดหมู่ seofriendly</label>
-                    <select name="selectseo" id="template-jobform-vp"  tabindex="9" class="sm-form-control required">
+                    <select name="seofriendlyname" id="template-jobform-vp"  tabindex="9" class="sm-form-control required">
   										<option value=""></option>
   										<option value="news">ข่าวสาร</option>
                       <option value="event">อีเวนท์</option>
@@ -186,7 +186,7 @@ if($_SESSION['Status'] != "ADMIN")
 
 									<div class="col_half col_last">
   									<label for="template-jobform-time">ชื่อ seofriendly</label>
-										<input type="text" name="seo" id="template-jobform-sp" value="" size="22" tabindex="7" class="sm-form-control" />
+										<input type="text" name="seofriendly" id="template-jobform-sp" value="" size="22" tabindex="7" class="sm-form-control" />
   								</div>
 
   								<div class="col_half">
@@ -501,7 +501,7 @@ if($_SESSION['Status'] != "ADMIN")
   								</div>
 
 									<div class="col_half col_last">
-										<label>atl big:</label><br>
+										<label>atl random:</label><br>
 										<input type="text" id="pic" name="alt22" value="" class="sm-form-control" />
 
 									</div>

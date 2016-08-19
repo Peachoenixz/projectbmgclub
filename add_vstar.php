@@ -102,7 +102,7 @@ if($_SESSION['Status'] != "ADMIN")
 
 							<div class="contact-form-result"></div>
 
-							<form action="save_vstar.php" id="template-jobform" name="template-jobform" method="post" role="form" enctype="multipart/form-data">
+							<form action="save_vstar" id="template-jobform" name="template-jobform" method="post" role="form" enctype="multipart/form-data">
 
 								<div class="form-process"></div>
 
