@@ -176,9 +176,21 @@ $title = "$getgroups $bmgclub $getheader";
 
 							<h4><?php echo $objResult['Groups'] ?> ที่แนะนำ:</h4>
 
+
+
 							<div class="related-posts clearfix">
 
 								<div class="col_half nobottommargin">
+                  <?php
+
+                  $randomblog = $objResult['seofriendlyname'];
+                  $strSQL = "SELECT * FROM eventnewsactivity WHERE seofriendlyname LIKE '%$randomblog%' ORDER BY RAND() DESC LIMIT 2";
+                  $objQuery  = mysql_query($strSQL);
+
+                  {
+                  while($objResult = mysql_fetch_array($objQuery))
+                  {
+                   ?>
 
 									<div class="mpost clearfix">
 										<div class="entry-image">
@@ -186,7 +198,7 @@ $title = "$getgroups $bmgclub $getheader";
 										</div>
 										<div class="entry-c">
 											<div class="entry-title">
-												<h4><a href="#">This is an Image Post</a></h4>
+												<h4><a href="#"><?php echo $objResult['Header'] ?></a></h4>
 											</div>
 											<ul class="entry-meta clearfix">
 												<li><i class="icon-calendar3"></i> 10th July 2014</li>
@@ -195,26 +207,21 @@ $title = "$getgroups $bmgclub $getheader";
 											<div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nisi perferendis.</div>
 										</div>
 									</div>
+                  <?php
+                }
 
-									<div class="mpost clearfix">
-										<div class="entry-image">
-											<a href="#"><img src="images/blog/small/20.jpg" alt="Blog Single"></a>
-										</div>
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="#">This is a Video Post</a></h4>
-											</div>
-											<ul class="entry-meta clearfix">
-												<li><i class="icon-calendar3"></i> 24th July 2014</li>
-												<li><a href="#"><i class="icon-comments"></i> 16</a></li>
-											</ul>
-											<div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nisi perferendis.</div>
-										</div>
-									</div>
+                  ?>
 
 								</div>
 
 								<div class="col_half nobottommargin col_last">
+                  <?php
+                  $randomblognews = 'news';
+                  $strSQL = "SELECT * FROM eventnewsactivity WHERE seofriendlyname LIKE '%$randomblognews%' ORDER BY RAND() DESC LIMIT 2";
+                  $objQuery  = mysql_query($strSQL);
+                  while($objResult = mysql_fetch_array($objQuery))
+                  {
+                   ?>
 
 									<div class="mpost clearfix">
 										<div class="entry-image">
@@ -222,7 +229,7 @@ $title = "$getgroups $bmgclub $getheader";
 										</div>
 										<div class="entry-c">
 											<div class="entry-title">
-												<h4><a href="#">This is a Gallery Post</a></h4>
+												<h4><a href="#"><?php echo $objResult['Header'] ?></a></h4>
 											</div>
 											<ul class="entry-meta clearfix">
 												<li><i class="icon-calendar3"></i> 8th Aug 2014</li>
@@ -232,25 +239,21 @@ $title = "$getgroups $bmgclub $getheader";
 										</div>
 									</div>
 
-									<div class="mpost clearfix">
-										<div class="entry-image">
-											<a href="#"><img src="images/blog/small/22.jpg" alt="Blog Single"></a>
-										</div>
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="#">This is an Audio Post</a></h4>
-											</div>
-											<ul class="entry-meta clearfix">
-												<li><i class="icon-calendar3"></i> 22nd Aug 2014</li>
-												<li><a href="#"><i class="icon-comments"></i> 21</a></li>
-											</ul>
-											<div class="entry-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nisi perferendis.</div>
-										</div>
-									</div>
+                  <?php
+                }
+              }
+                  ?>
 
 								</div>
 
+
 							</div>
+
+              <?php
+              $SQL = "SELECT * FROM eventnewsactivity WHERE seofriendly = '".$_GET["seofriendly"]."' AND seofriendlyname = '".$_GET["seofriendlyname"]."' ";
+              $querycomment = mysql_query($SQL);
+              $objResult = mysql_fetch_array($querycomment);
+              ?>
 
               <div id="fb-root"></div>
   						<script>(function(d, s, id) {
@@ -262,9 +265,6 @@ $title = "$getgroups $bmgclub $getheader";
   						}(document, 'script', 'facebook-jssdk'));</script>
 
   						<div id="comments" class="clearfix">
-
-  						<h3 id="comments-title"><span><fb:comments-count href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club"></fb:comments-count></span> Comments</h3>
-
   						<!-- Facebook Comments
   						============================================= -->
   						<div class="fb-comments" data-width="100%" data-href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club" data-numposts="5" data-colorscheme="light"></div>
