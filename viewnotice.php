@@ -174,7 +174,7 @@ $title = "$getgroups $bmgclub $getheader";
 
 							<div class="line"></div>
 
-							<h4>Related Posts:</h4>
+							<h4><?php echo $objResult['Groups'] ?> ที่แนะนำ:</h4>
 
 							<div class="related-posts clearfix">
 
