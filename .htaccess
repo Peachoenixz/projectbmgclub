@@ -1,0 +1,24 @@
+#BMG CLUB mod_rewrite V.0.1 beta
+#www.bmg-club.com
+
+#Rewritestart
+RewriteEngine On
+
+#Rewriterule
+#1)externally redirect "/file.php" to "/file"
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+#2)Internally map "/file" back to "/file.php"
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*?)/?$ /$1.php [NC,L]
+
+#3)externally redirect "/file.html" to "/file"
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+#4)Internally map "/file" back to "/file.html
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*?)/?$ /$1.php [NC,L]
+
+#Viewnewlist (ดูหน้ารายชื่อ)
+RewriteRule ^Vstar=([0-9a-zA-Z]+) Viewnewlist.php?Vstar=$1
+RewriteRule ^(.*)/(.*).bmg-club viewnotice.php?seofriendlyname=$1&seofriendly=$2
