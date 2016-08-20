@@ -506,6 +506,43 @@ if($_SESSION['Status'] != "ADMIN")
 
 									</div>
 
+									<div class="col_half">
+  									<label>รูปใหญ่หน้าเว็บ :</label><br>
+  								  <input type="file" id="input-23" accept="image/*" class="file-loading"data-allowed-file-extensions='[]' name="bigpic" value=""  />
+
+  								</div>
+
+                  <div class="col_half col_last">
+  									<label>รูปใหญ่ในหน้าข่าว:</label><br>
+  									<input type="file" id="input-24" accept="image/*" class="file-loading"data-allowed-file-extensions='[]' name="bigpicin" value=""  />
+
+  								</div>
+
+
+									<div class="col_half">
+  									<label>alt ใหญ่หน้าเว็บ:</label><br>
+  									<input type="text" id="pic" name="alt23" value=""  class="sm-form-control"/>
+
+  								</div>
+
+									<div class="col_half col_last">
+										<label>atl รูปใหญ่ในหน้าข่าว:</label><br>
+										<input type="text" id="pic" name="alt24" value="" class="sm-form-control" />
+
+									</div>
+
+									<div class="col_half col_last">
+  									<label>รูปใหญ่หน้าข่าว:</label><br>
+  									<input type="file" id="input-25" accept="image/*" class="file-loading"data-allowed-file-extensions='[]' name="bigpicfront" value=""  />
+
+  								</div>
+
+									<div class="col_half col_last">
+										<label>atl รูปใหญ่หน้าข่าว:</label><br>
+										<input type="text" id="pic" name="alt25" value="" class="sm-form-control" />
+
+									</div>
+
   								<div class="hidden">
   									<input type="text" id="template-jobform-botcheck" name="template-jobform-botcheck" value="" class="sm-form-control" />
   								</div>
@@ -901,6 +938,51 @@ if($_SESSION['Status'] != "ADMIN")
 					});
 
 					$("#input-22").fileinput({
+						mainClass: "input-group-md",
+						showUpload: true,
+						previewFileType: "image",
+						browseClass: "btn btn-success",
+						browseLabel: "Pick Image",
+						browseIcon: "<i class=\"icon-picture\"></i> ",
+						removeClass: "btn btn-danger",
+						removeLabel: "Delete",
+						removeIcon: "<i class=\"icon-trash\"></i> ",
+						uploadClass: "btn btn-info",
+						uploadLabel: "Upload",
+						uploadIcon: "<i class=\"icon-upload\"></i> "
+					});
+
+					$("#input-23").fileinput({
+						mainClass: "input-group-md",
+						showUpload: true,
+						previewFileType: "image",
+						browseClass: "btn btn-success",
+						browseLabel: "Pick Image",
+						browseIcon: "<i class=\"icon-picture\"></i> ",
+						removeClass: "btn btn-danger",
+						removeLabel: "Delete",
+						removeIcon: "<i class=\"icon-trash\"></i> ",
+						uploadClass: "btn btn-info",
+						uploadLabel: "Upload",
+						uploadIcon: "<i class=\"icon-upload\"></i> "
+					});
+
+					$("#input-24").fileinput({
+						mainClass: "input-group-md",
+						showUpload: true,
+						previewFileType: "image",
+						browseClass: "btn btn-success",
+						browseLabel: "Pick Image",
+						browseIcon: "<i class=\"icon-picture\"></i> ",
+						removeClass: "btn btn-danger",
+						removeLabel: "Delete",
+						removeIcon: "<i class=\"icon-trash\"></i> ",
+						uploadClass: "btn btn-info",
+						uploadLabel: "Upload",
+						uploadIcon: "<i class=\"icon-upload\"></i> "
+					});
+
+					$("#input-25").fileinput({
 						mainClass: "input-group-md",
 						showUpload: true,
 						previewFileType: "image",
