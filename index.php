@@ -490,6 +490,11 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 									<?php
 
 
+									$SQL = "SELECT * FROM eventnewsactivity WHERE seofriendlyname LIKE '%activity%' DESC LIMIT 1";
+									$query = mysql_query($SQL);
+
+
+									while ($objResult = mysql_fetch_array($query)){
 
 									?>
 
@@ -513,7 +518,9 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 
 										</div>
 									</div>
-
+									<?
+									}
+									?>
 									<div class="col_two_fifth col_last nobottommargin">
 
 										<div class="spost clearfix">
