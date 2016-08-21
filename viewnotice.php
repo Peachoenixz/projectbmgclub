@@ -90,9 +90,8 @@ $title = "$getgroups $bmgclub $getheader";
 									<li><i class="icon-calendar3"></i> <?php echo $objResult["Datehead"]; ?></li>
 									<li><a href="#"><i class="icon-user"></i> <?php echo $objResult["Username"]; ?></a></li>
                   <li><i class="icon-folder-open"></i> <a href="#"><?php echo $objResult["Tag"]; ?></a>,<a href="#"><?php echo $objResult["Tag2"]; ?></a>,<a href="#"><?php echo $objResult["Tag3"]; ?></a>
-									,<a href="#"><?php echo $objResult["Tag4"]; ?></a>,<a href="#"><?php echo $objResult["Tag5"]; ?></a>,<a href="#"><?php echo $objResult["Tag6"]; ?></a>
-									,<a href="#"><?php echo $objResult["Tag7"]; ?></a>,<a href="#"><?php echo $objResult["Tag8"]; ?></a>,<a href="#"><?php echo $objResult["Tag9"]; ?></a>
-									,<a href="#"><?php echo $objResult["Tag10"]; ?></a>
+									,<a href="#"><?php echo $objResult["Tag4"]; ?></a>,<a href="#"><?php echo $objResult["Tag5"]; ?></a>
+
 									<li><a href="<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club#comments"><i class="icon-comments"></i> <fb:comments-count href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club"></fb:comments-count> ความคิดเห็น </a></li>
 									<li><a href="#"><i class="<?php echo $objResult['Icons'] ?>"></i></a></li>
 								</ul><!-- .entry-meta end -->

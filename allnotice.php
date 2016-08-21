@@ -112,7 +112,7 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
                   ?>
 							<div class="entry bf-image clearfix">
 								<div class="entry-image">
-									<a href="/eventnewsactivitypic/<?php echo $objResult["bigpic"]; ?>" data-lightbox="image"><img class="image_fade" src="/eventnewsactivitypic/<?php echo $objResult["bigpic"]; ?>" alt="<?php echo $objResult["alt23"]; ?>"></a>
+									<a href="/eventnewsactivitypic/<?php echo $objResult["bigpicfront"]; ?>" data-lightbox="image"><img class="image_fade" src="/eventnewsactivitypic/<?php echo $objResult["bigpicfront"]; ?>" alt="<?php echo $objResult["alt23"]; ?>"></a>
 								</div>
 								<div class="entry-title">
 									<h2><a href="blog-single.html"><?php echo $objResult["Header"]; ?></a></h2>
@@ -121,15 +121,13 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 									<li><i class="icon-calendar3"></i> <?php echo $objResult["Datehead"]; ?></li>
 									<li><a href="#"><i class="icon-user"></i> <?php echo $objResult["Username"]; ?></a></li>
 									<li><i class="icon-folder-open"></i> <a href="#"><?php echo $objResult["Tag"]; ?></a>,<a href="#"><?php echo $objResult["Tag2"]; ?></a>,<a href="#"><?php echo $objResult["Tag3"]; ?></a>
-									,<a href="#"><?php echo $objResult["Tag4"]; ?></a>,<a href="#"><?php echo $objResult["Tag5"]; ?></a>,<a href="#"><?php echo $objResult["Tag6"]; ?></a>
-									,<a href="#"><?php echo $objResult["Tag7"]; ?></a>,<a href="#"><?php echo $objResult["Tag8"]; ?></a>,<a href="#"><?php echo $objResult["Tag9"]; ?></a>
-									,<a href="#"><?php echo $objResult["Tag10"]; ?></a>
-									<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13 Comments</a></li>
+									,<a href="#"><?php echo $objResult["Tag4"]; ?></a>,<a href="#"><?php echo $objResult["Tag5"]; ?></a>
+									<li><a href="<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club#comments"><i class="icon-comments"></i> <fb:comments-count href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club"></fb:comments-count> ความคิดเห็น </a></li>
 									<li><a href="#"><i class="<?php echo $objResult["Icons"]; ?>"></i></a></li>
 								</ul>
 								<div class="entry-content">
 									<p><?php echo $objResult["Codefront"]; ?></p>
-									<a href="<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club"class="more-link">Read More</a>
+									<a href="<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club"class="more-link">อ่านต่อ</a>
 								</div>
 							</div>
               <?php
@@ -140,6 +138,15 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 
 
 						</div><!-- #posts end -->
+
+						<div id="fb-root"></div>
+						<script>(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (d.getElementById(id)) return;
+							js = d.createElement(s); js.id = id;
+							js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1023915151017751";
+							fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
 
 						<!-- Blog Filter Script
 						============================================= -->
