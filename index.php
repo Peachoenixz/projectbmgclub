@@ -1,3 +1,21 @@
+<!-- License
+/**
+ * BMG CLUB
+ *
+ * Copyright 2016
+ *
+ * @ Version 0.1 Beta
+ * @ Theme developed by ;mPeet
+ * @ Developer By n0nzkywalker Edtz ;mPeet PP.
+ * @ "A semicolon is used when a sentence could have been ended but it wasn't"
+ * @ Contact me : misaka998@gmail.com
+ * n0nzkywalker = IT#19@KMUTT
+ * Edtz = King Mongkut's University of Technology North Bangkok
+ * ;mPeet = Marialai School #MRL 2015 Grade 11
+ */
+-->
+
+
 <?php
 include('connect.php');
 $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ สำหรับคนพิเศษ ให้ได้ทุกสิ่ง เป็นจริงทุกเรื่อง';
@@ -353,26 +371,27 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 						<div class="fslider bnews-slider nobottommargin" data-speed="800" data-pause="6000" data-arrows="false" data-pagi="false">
 							<div class="flexslider">
 								<div class="slider-wrap">
+
 									<?php
 
-				$currentTime =  date("Y-m");
-				$SQLE = "SELECT * FROM eventname WHERE (Timeevent LIKE '%$currentTime%')";
-				$querye = mysql_query($SQLE);
-	    	  if(mysql_num_rows($querye)>=1){
+
+				$SQL = "SELECT * FROM eventnewsactivity order by enaID DESC LIMIT 15";
+				$query = mysql_query($SQL);
+
+					if(mysql_num_rows($query)>=1){
 
 
-	             while ($objResult = mysql_fetch_array($querye)) {
+							 while ($objResult = mysql_fetch_array($query)) {
 								 ?>
-									<div class="slide" style="font-family: 'Kanit', sans-serif;"><a href="<?php echo $objResult["Eventlink"];?>"><strong> <?php echo $objResult["Eventname"];?> </strong></a></div>
+									<div class="slide" style="font-family: 'Kanit', sans-serif;"><a href="<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club"><strong> <?php echo $objResult["Header"]; ?> </strong></a></div>
 
 									<?php
 									}}  else {
 											?>
-											<div class="slide" style="font-family: 'Kanit', sans-serif;"><strong> เดือนนี้ยังไม่มีกิจกรรม หรือ อีเว้นท์ จาก BMG CLUB จ้า</strong></div>
+											<div class="slide" style="font-family: 'Kanit', sans-serif;"><strong> ยินดีต้อนรับสมาชิกใหม่ทุกท่าน</strong></div>
 										<?php
 										 }
 										 ?>
-
 
 								</div>
 							</div>
@@ -468,21 +487,30 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 							</div>
 
 								<div class="tab-content clearfix" id="tabs-news-2">
+									<?php
+
+
+
+									?>
 
 									<div class="col_three_fifth nobottommargin">
 										<div class="ipost clearfix">
 											<div class="entry-image">
 												<a href="korea-bmgclub-activity.php"><img class="image_fade" src="images/magazine/korea-bmgclub.jpg" alt="Image"></a>
 											</div>
+
 											<div class="entry-title">
 												<h3><a href="korea-bmgclub-activity.php" style="font-family: 'Kanit', sans-serif;">สุขภาพดี เที่ยวฟรี มีเงินใช้ ที่ เกาหลี</a></h3>
 											</div>
+
 											<ul class="entry-meta clearfix">
 												<li style="font-family: 'Kanit', sans-serif;"><i class="icon-calendar3"></i> 6 มิถุนายน 2559</li>
 											</ul>
+
 											<div class="entry-content">
 												<p style="font-family: 'Kanit', sans-serif;">กิจกรรมใหม่จาก BMG CLUB มาแล้วจ้า ได้ เที่ยวฟรี สุขภาพดี มีเงินใช้ กันอีกแล้ว คราวนี้เราจัดเที่ยวฟรีถึงเกาหลีกันเลยทีเดียว อย่าพลาดโอกาสกันละ สมาชิก BMG CLUB รีบปิด VIP เพื่อไปท่องเที่ยวฟรีกับ BMG CLUB จ้า !</p>
 											</div>
+
 										</div>
 									</div>
 
