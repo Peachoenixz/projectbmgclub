@@ -101,11 +101,9 @@ if($_SESSION['Status'] != "ADMIN")
 								<tr>
 									<th>VSTAR-ID</th>
 									<th>รายชื่อ</th>
-									<th>สาขา</th>
-									<th>วันที่สมัคร</th>
-									<th>Sponsored</th>
-									<th>SponsoredVIP</th>
-									<th>SponsoredMini</th>
+									<th hidden>สาขา</th>
+									<th hidden>วันที่สมัคร</th>
+									<th>VIP / Mini / รวม</th>
 									<th>รายได้จาก VIP-Mini</th>
 								</tr>
 							</thead>
@@ -122,10 +120,12 @@ if($_SESSION['Status'] != "ADMIN")
 
 											<?php
 
-											$sponsor = $objResult["Name"];
-											$sponsorsur = $objResult["Surname"];
-											$querysponsor = mysql_query("SELECT * FROM vip WHERE Sponsor LIKE '%$sponsor $sponsorsur' ");
-											$recordsponsor = mysql_num_rows($querysponsor);
+											$Pos = $objResult["Position"];
+									    $Vstar = $objResult["Vstar"];
+									    $sponsor = $objResult["Name"];
+									    $sponsorsur = $objResult["Surname"];
+									    $querysponsor = mysql_query("SELECT * FROM vip WHERE Sponsor LIKE '%$sponsor $sponsorsur' ");
+									    $recordsponsor = mysql_num_rows($querysponsor);
 
 											$m = 'M';
 											$querysponsorm = mysql_query("SELECT * FROM vip WHERE vip.Sponsor LIKE '%$sponsor $sponsorsur' and vip.Setvip LIKE '%$m%' ");
@@ -134,6 +134,21 @@ if($_SESSION['Status'] != "ADMIN")
 											$vp = 'V';
 											$querysponsorvp = mysql_query("SELECT * FROM vip WHERE vip.Sponsor LIKE '%$sponsor $sponsorsur' and vip.Setvip LIKE '%$vp%' ");
 											$recordvp = mysql_num_rows($querysponsorvp);
+
+											$star = "Star";
+											$querysponsorsstar = mysql_query("SELECT * FROM vip WHERE vip.Sponsor LIKE '%$sponsor $sponsorsur' and vip.Position LIKE '%$star%' ");
+											$recordstar = mysql_num_rows($querysponsorsstar);
+
+											$sstar = "SuperStar";
+											$querysponsorsustar = mysql_query("SELECT * FROM vip WHERE vip.Sponsor LIKE '%$sponsor $sponsorsur' and vip.Position LIKE '%$sstar%' ");
+											$recordsstar = mysql_num_rows($querysponsorsustar);
+
+											$dstar = "Diamond Star";
+											$querysponsorsudstar = mysql_query("SELECT * FROM vip WHERE vip.Sponsor LIKE '%$sponsor $sponsorsur' and vip.Position LIKE '%$dstar%' ");
+											$recordsudstar = mysql_num_rows($querysponsorsudstar);
+
+											$sdstar = "Super Diamond Star";
+
 
 											$recordmoneym = $recordm * 1500.00 ;
 											$recordmoneyvp = $recordvp * 7000.00 ;
@@ -144,9 +159,7 @@ if($_SESSION['Status'] != "ADMIN")
 											<td><?php echo $objResult["Name"];?> <?php echo $objResult["Surname"];?></td>
 											<td><?php echo $objResult["Branch"]; ?></td>
 											<td><?php echo $objResult["Dates"]; ?></td>
-											<td><?php echo $recordsponsor ?> คน</td>
-											<td><?php echo $recordvp ?> คน</td>
-											<td><?php echo $recordm ?> คน</td>
+											<td><?php echo $recordvp  $recordm $recordsponsor ?> คน</td>
 											<td><?php echo $recordmoney ?></td>
 										</a>
 									</tr>

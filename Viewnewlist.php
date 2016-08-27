@@ -41,7 +41,7 @@ if($_SESSION['Status'] != "ADMIN")
 		============================================= -->
 		<div id="top-bar">
 
-		<?php include('topbar.php'); ?>
+			<?php include('topbar.php'); ?>
 
 		</div><!-- #top-bar end -->
 
@@ -103,10 +103,24 @@ if($_SESSION['Status'] != "ADMIN")
 
 
 					<div class="col_two_fifth nobottommargin">
-							<img src="images/bmgclubvstar/<?php echo $objResult["url_cover"]; ?>" weight="500" height="500">
-							<br>
-							<a href="images/bmgclubvstar/<?php echo $objResult["url_cover"]; ?>"> ภาพเต็ม </a>
-							<a href="picedit.php?Vstar=<?php echo $objResult["Vstar"];?>"> แก้ไขภาพ</a>
+						<?php
+						$file = "http://bmg-club.com/images/bmgclubvstar/".$objResult["url_cover"]."";
+						$image_path = "http://bmg-club.com/images/bmgclubvstar/og-bmgclub.jpg";
+						if (@getimagesize($file)) {
+							echo "<img src='".$file."'>";
+						} else {
+							echo "<img src='".$image_path."'>";
+						}
+						?>
+						<br>
+						<?php
+						if (@getimagesize($file)) {
+							echo "<a href='".$file."'>ภาพเต็ม</a>";
+						} else {
+
+						}
+						?>
+						<a href="picedit.php?Vstar=<?php echo $objResult["Vstar"];?>"> แก้ไขภาพ</a>
 					</div>
 
 					<div class="col_three_fifth nobottommargin col_last">
@@ -167,35 +181,35 @@ if($_SESSION['Status'] != "ADMIN")
 						<h5>จำนวนครั้งที่ปิด VIP-Mini</h5>
 					</div>
 
+				</div>
+
+				<div class="section bottommargin-lg footer-stick">
+
+					<div class="col_one_fourth nobottommargin center">
+						<i class="i-plain i-xlarge divcenter nobottommargin icon-diamond"></i>
+						<div class="counter counter-large" style="color: #1abc9c;"><span data-from="0" data-to="<?php echo $recordmoney ?>" data-refresh-interval="50" data-speed="2000"></span></div>
+						<h5>รายได้ VIP/เดือน</h5>
 					</div>
 
-					<div class="section bottommargin-lg footer-stick">
+					<div class="col_one_fourth nobottommargin center">
+						<i class="i-plain i-xlarge divcenter nobottommargin icon-globe"></i>
+						<div class="counter counter-large" style="color: #e74c3c;"><span data-from="0" data-to="<?php echo $recordbv ?>" data-refresh-interval="50" data-speed="2500"></span></div>
+						<h5>BV/เดือน</h5>
+					</div>
 
-						<div class="col_one_fourth nobottommargin center">
-							<i class="i-plain i-xlarge divcenter nobottommargin icon-diamond"></i>
-							<div class="counter counter-large" style="color: #1abc9c;"><span data-from="0" data-to="<?php echo $recordmoney ?>" data-refresh-interval="50" data-speed="2000"></span></div>
-							<h5>รายได้ VIP/เดือน</h5>
-						</div>
+					<div class="col_one_fourth nobottommargin center">
+						<i class="i-plain i-xlarge divcenter nobottommargin icon-gift"></i>
+						<div class="counter counter-large" style="color: #3498db;"><span data-from="0" data-to="<?php echo $recordvpm ?>" data-refresh-interval="50" data-speed="3500"></span></div>
+						<h5>จำนวนปิดVIP/เดือน</h5>
+					</div>
 
-						<div class="col_one_fourth nobottommargin center">
-							<i class="i-plain i-xlarge divcenter nobottommargin icon-globe"></i>
-							<div class="counter counter-large" style="color: #e74c3c;"><span data-from="0" data-to="<?php echo $recordbv ?>" data-refresh-interval="50" data-speed="2500"></span></div>
-							<h5>BV/เดือน</h5>
-						</div>
+					<div class="col_one_fourth nobottommargin center col_last">
+						<i class="i-plain i-xlarge divcenter nobottommargin icon-fire"></i>
+						<div class="counter counter-large" style="color: #9b59b6;"><span data-from="0" data-to="<?php echo $recordsponsor ?>" data-refresh-interval="30" data-speed="2700"></span></div>
+						<h5>จำนวนครั้งปิดMini-VIP/เดือน</h5>
+					</div>
 
-						<div class="col_one_fourth nobottommargin center">
-							<i class="i-plain i-xlarge divcenter nobottommargin icon-gift"></i>
-							<div class="counter counter-large" style="color: #3498db;"><span data-from="0" data-to="<?php echo $recordvpm ?>" data-refresh-interval="50" data-speed="3500"></span></div>
-							<h5>จำนวนปิดVIP/เดือน</h5>
-						</div>
-
-						<div class="col_one_fourth nobottommargin center col_last">
-							<i class="i-plain i-xlarge divcenter nobottommargin icon-fire"></i>
-							<div class="counter counter-large" style="color: #9b59b6;"><span data-from="0" data-to="<?php echo $recordsponsor ?>" data-refresh-interval="30" data-speed="2700"></span></div>
-							<h5>จำนวนครั้งปิดMini-VIP/เดือน</h5>
-						</div>
-
-						</div>
+				</div>
 			</div>
 
 		</section><!-- #content end -->
