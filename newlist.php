@@ -31,9 +31,6 @@ if($_SESSION['Status'] != "ADMIN")
 	<link rel="stylesheet" href="css/components/bs-datatable.css" type="text/css" />
 
 
-	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic|Play+Fair:700" rel="stylesheet" type="text/css" />
-
-
 
 </head>
 
@@ -65,11 +62,9 @@ if($_SESSION['Status'] != "ADMIN")
 		<section id="page-title">
 
 			<div class="container clearfix">
-				<h1>List Groups &amp; Panels</h1>
+				<h1>Panel Admin By PP.</h1>
 				<ol class="breadcrumb">
 					<li><a href="#">Home</a></li>
-					<li><a href="#">Shortcodes</a></li>
-					<li class="active">List Groups &amp; Panels</li>
 				</ol>
 			</div>
 
@@ -105,6 +100,8 @@ if($_SESSION['Status'] != "ADMIN")
 									<th hidden>วันที่สมัคร</th>
 									<th>VIP / Mini / รวม</th>
 									<th>รายได้จาก VIP-Mini</th>
+									<th>ตำแหน่ง</th>
+									<th>Edit</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -116,7 +113,7 @@ if($_SESSION['Status'] != "ADMIN")
 									{
 										?>
 
-										<tr class="<?php echo $objResult["Code"]; ?>" onclick="window.open('Vstar=<?php echo $objResult["Vstar"];?>', '_blank');">
+										<tr class="<?php echo $objResult["Code"]; ?>">
 
 											<?php
 
@@ -135,19 +132,19 @@ if($_SESSION['Status'] != "ADMIN")
 											$querysponsorvp = mysql_query("SELECT * FROM vip WHERE vip.Sponsor LIKE '%$sponsor $sponsorsur' and vip.Setvip LIKE '%$vp%' ");
 											$recordvp = mysql_num_rows($querysponsorvp);
 
-											$star = "Star";
+											$star = "STAR";
 											$querysponsorsstar = mysql_query("SELECT * FROM vip WHERE vip.Sponsor LIKE '%$sponsor $sponsorsur' and vip.Position LIKE '%$star%' ");
 											$recordstar = mysql_num_rows($querysponsorsstar);
 
-											$sstar = "SuperStar";
+											$sstar = "SUPER STAR";
 											$querysponsorsustar = mysql_query("SELECT * FROM vip WHERE vip.Sponsor LIKE '%$sponsor $sponsorsur' and vip.Position LIKE '%$sstar%' ");
 											$recordsstar = mysql_num_rows($querysponsorsustar);
 
-											$dstar = "Diamond Star";
+											$dstar = "DIAMOND STAR";
 											$querysponsorsudstar = mysql_query("SELECT * FROM vip WHERE vip.Sponsor LIKE '%$sponsor $sponsorsur' and vip.Position LIKE '%$dstar%' ");
 											$recordsudstar = mysql_num_rows($querysponsorsudstar);
 
-											$sdstar = "Super Diamond Star";
+											$sdstar = "SUPER DIAMOND STAR";
 
 
 											$recordmoneym = $recordm * 1500.00 ;
@@ -155,16 +152,50 @@ if($_SESSION['Status'] != "ADMIN")
 											$recordmoney = $recordmoneym + $recordmoneyvp;
 
 											?>
-											<td><?php echo $objResult["Vstar"]; ?></td>
-											<td><?php echo $objResult["Name"];?> <?php echo $objResult["Surname"];?></td>
-											<td><?php echo $objResult["Branch"]; ?></td>
-											<td><?php echo $objResult["Dates"]; ?></td>
-											<td><?php echo $recordvp  $recordm $recordsponsor ?> คน</td>
-											<td><?php echo $recordmoney ?></td>
+											<td><icon class="icon-line-server"></i> <?php echo $objResult["Vstar"]; ?></td>
+											<td><a href="Vstar=<?php echo $objResult["Vstar"]; ?>"><i class="icon-user"></i> <?php echo $objResult["Name"];?> <?php echo $objResult["Surname"];?></a></td>
+											<td hidden><?php echo $objResult["Branch"]; ?></td>
+											<td hidden><?php echo $objResult["Dates"]; ?></td>
+											<td><?php echo "$recordvp / $recordm / $recordsponsor"; ?> คน <i class="icon-users"></i></td>
+											<td><?php echo $recordmoney ?> <i class="fa fa-bitcoin"></i></td>
+											<td><i class="icon-thumbs-up"></i> <?php if(empty($Pos)){
+									      echo "VIP";
+									    }else{
+									      echo $Pos;
+									    } ?></td>
+
+											<td>
+												<a href="listedit.php?Vstar=<?php echo $objResult['Vstar'] ?>"  class="btn btn-primary btn-sm"><span class="icon-edit" aria-hidden="true"></span></a>
+											</td>
 										</a>
 									</tr>
 
 									<?php }
+
+									if($recordsudstar == 2){
+							      $strSQL = "UPDATE vip SET ";
+							      $strSQL .="Position = '".$sdstar."' ";
+							      $strSQL .="WHERE Vstar = '".$Vstar."' ";
+							      $query = mysql_query($strSQL);
+							    }
+							    elseif($recordsstar == 2){
+							      $strSQL = "UPDATE vip SET ";
+							      $strSQL .="Position = '".$dstar."' ";
+							      $strSQL .="WHERE Vstar = '".$Vstar."' ";
+							      $query = mysql_query($strSQL);
+							    }
+							    elseif($recordstar == 2){
+							      $strSQL = "UPDATE vip SET ";
+							      $strSQL .="Position = '".$sstar."' ";
+							      $strSQL .="WHERE Vstar = '".$Vstar."' ";
+							      $query = mysql_query($strSQL);
+							    }
+							    elseif($recordvp == 2 ){
+							      $strSQL = "UPDATE vip SET ";
+							      $strSQL .="Position = '".$star."' ";
+							      $strSQL .="WHERE Vstar = '".$Vstar."' ";
+							      $query = mysql_query($strSQL);
+							    }
 								}?>
 							</tbody>
 						</table>
@@ -225,6 +256,7 @@ if($_SESSION['Status'] != "ADMIN")
 	<link rel="stylesheet" href="css/components/bs-datatable.css" type="text/css" />
 	<script type="text/javascript" src="js/components/bs-datatable.js"></script>
 
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
 	<!-- Footer Scripts
 	============================================= -->

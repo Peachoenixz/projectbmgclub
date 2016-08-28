@@ -438,8 +438,6 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 
 											<div class="tab-content clearfix" id="tabs-news-1">
 												<?php
-
-
 												$findname = 'activity';
 												$SQL = "SELECT * FROM eventnewsactivity WHERE seofriendlyname LIKE '%$findname%' order by enaID DESC LIMIT 1";
 												$query = mysql_query($SQL);
@@ -512,8 +510,6 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 
 											<div class="tab-content clearfix" id="tabs-news-2">
 												<?php
-
-
 												$findname = 'activity';
 												$SQL = "SELECT * FROM eventnewsactivity WHERE seofriendlyname LIKE '%$findname%' order by enaID DESC LIMIT 1";
 												$query = mysql_query($SQL);
@@ -586,45 +582,71 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 
 											<div class="tab-content clearfix" id="tabs-news-3">
 
-												<div class="col_three_fifth nobottommargin">
-													<div class="ipost clearfix">
-														<div class="entry-image">
-															<iframe src="https://www.youtube.com/embed/azFlj0Ffn7I" width="500" height="281"></iframe>
-														</div>
-														<div class="entry-title">
-															<h3><a href="singapore-movement-events.php" style="font-family: 'Kanit', sans-serif;">บรรยากาศ เที่ยวฟรี สุขภาพดี มีเงินใช้ ที่ สิงคโปร์-มาเลเซีย</a></h3>
-														</div>
-														<ul class="entry-meta clearfix">
-															<li style="font-family: 'Kanit', sans-serif;"><i class="icon-calendar3"></i> 6 มิถุนายน 2559</li>
-														</ul>
-														<div class="entry-content">
-															<p style="font-family: 'Kanit', sans-serif;">บรรยากาศ ท่องเที่ยวฟรี สุขภาพดี มีเงินใช้ ให้ BMG CLUB ดูแล ณ สิงคโปร์ เป็นทริปที่พิเศษ และ น่าสนใจเป็นอย่างมาก</p>
-														</div>
-													</div>
-												</div>
+												<?php
+												$findname = 'activity';
+												$SQL = "SELECT * FROM eventnewsactivity WHERE seofriendlyname LIKE '%$findname%' order by enaID DESC LIMIT 1";
+												$query = mysql_query($SQL);
+												while ($objResult = mysql_fetch_array($query)){
+													$getena = $objResult["enaID"];
 
-												<div class="col_two_fifth col_last nobottommargin">
+													?>
 
-													<div class="spost clearfix">
-														<div class="entry-image">
-															<a href="hongkong-movement-events.php"><img class="image_fade" src="images/magazine/small/movie/hongkong-movement-events.jpg" alt="Image"></a>
-														</div>
-														<div class="entry-c">
-															<div class="entry-title">
-																<h4><a href="hongkong-movement-events.php" style="font-family: 'Kanit', sans-serif;">บรรยากาศ เที่ยวฟรี สุขภาพดี มีเงินใช้ ที่ ฮ่องกง-เซิ้นเจิ้น</a></h4>
+													<div class="col_three_fifth nobottommargin">
+														<div class="ipost clearfix">
+															<div class="entry-image">
+																<a href="/<?php echo $objResult["seofriendlyname"] ?>/<?php echo $objResult["seofriendly"] ?>.bmg-club"><img class="image_fade" src="/eventnewsactivitypic/<?php echo $objResult["bigpic"] ?>" alt="Image"></a>
 															</div>
+
+															<div class="entry-title">
+																<h3><a href="/<?php echo $objResult["seofriendlyname"] ?>/<?php echo $objResult["seofriendly"] ?>.bmg-club" style="font-family: 'Kanit', sans-serif;">สุขภาพดี เที่ยวฟรี มีเงินใช้ ที่ เกาหลี</a></h3>
+															</div>
+
 															<ul class="entry-meta clearfix">
+																<li style="font-family: 'Kanit', sans-serif;"><i class="icon-calendar3"></i> <?php echo $objResult["Datehead"] ?></li>
+																<li style="font-family: 'Kanit', sans-serif;"><a href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club#comments"><i class="icon-comments"></i> <fb:comments-count href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club"></fb:comments-count> ความคิดเห็น</a></li>
 															</ul>
+
+															<div class="entry-content">
+																<p style="font-family: 'Kanit', sans-serif;"><?php echo $objResult['Codefront'] ?></p>
+															</div>
+
 														</div>
 													</div>
+													<div class="col_two_fifth col_last nobottommargin">
+														<?php
+													}
+													$SQL = "SELECT * FROM eventnewsactivity WHERE enaID < $getena and seofriendlyname LIKE '%$findname%' order by enaID DESC LIMIT 4";
+													$query = mysql_query($SQL);
+													while ($objResult = mysql_fetch_array($query)){
+														?>
+
+														<div class="spost clearfix">
+															<div class="entry-image">
+																<a href="vietnam-bmgclub-activity.php"><img class="image_fade" src="/eventnewsactivitypic/<?php echo $objResult["smallpic"] ?>" alt="Image"></a>
+															</div>
+															<div class="entry-c">
+																<div class="entry-title">
+																	<h4><a href="vietnam-bmgclub-activity.php" style="font-family: 'Kanit', sans-serif;">สุขภาพดี เที่ยวฟรี มีเงินใช้ ที่ เวียดนาม</a></h4>
+																</div>
+																<ul class="entry-meta clearfix">
+																	<li class="color"><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>
+
+																</ul>
+															</div>
+														</div>
+
+														<?php
+													}
+
+													?>
 
 													<div class="spost clearfix">
 														<div class="entry-image">
-															<a href="events-movement-all.php"><img class="image_fade" src="images/magazine/small/more.jpg" alt="Image"></a>
+															<a href="activity-movement-all.php"><img class="image_fade" src="images/magazine/small/more.jpg" alt="Image"></a>
 														</div>
 														<div class="entry-c">
 															<div class="entry-title">
-																<h4><a href="events-activity-all.php">More+</a></h4>
+																<h4><a href="movement-activity-all.php">More+</a></h4>
 															</div>
 														</div>
 													</div>
@@ -633,45 +655,71 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 
 											<div class="tab-content clearfix" id="tabs-news-4">
 
-												<div class="col_three_fifth nobottommargin">
-													<div class="ipost clearfix">
-														<div class="entry-image">
-															<iframe src="https://www.youtube.com/embed/dgE4LHHdMtc" width="500" height="281"></iframe>
-														</div>
-														<div class="entry-title">
-															<h3><a href="variety-4-movement-video.php" style="font-family: 'Kanit', sans-serif;">Variety BMG CLUB ครั้งที่ 4</a></h3>
-														</div>
-														<ul class="entry-meta clearfix">
-															<li style="font-family: 'Kanit', sans-serif;"><i class="icon-calendar3"></i> 6 มิถุนายน 2559</li>
-														</ul>
-														<div class="entry-content">
-															<p style="font-family: 'Kanit', sans-serif;">วีดีโอนี้จะเล่าเกี่ยวกับผลิตภัณฑ์ของ BMG CLUB ที่รักษาผู้ป่วยจากโรคร้าย ๆ ต่าง ๆ จนหายขาด หรือ บรรเทาลง.</p>
-														</div>
-													</div>
-												</div>
+												<?php
+												$findname = 'activity';
+												$SQL = "SELECT * FROM eventnewsactivity WHERE seofriendlyname LIKE '%$findname%' order by enaID DESC LIMIT 1";
+												$query = mysql_query($SQL);
+												while ($objResult = mysql_fetch_array($query)){
+													$getena = $objResult["enaID"];
 
-												<div class="col_two_fifth col_last nobottommargin">
+													?>
 
-													<div class="spost clearfix">
-														<div class="entry-image">
-															<a href="variety-3-movement-video.php"><img class="image_fade" src="images/magazine/small/variety-3-movement-video.jpg" alt="Image"></a>
-														</div>
-														<div class="entry-c">
-															<div class="entry-title">
-																<h4><a href="variety-3-movement-video.php" style="font-family: 'Kanit', sans-serif;">Variety BMG CLUB ครั้งที่ 3</a></h4>
+													<div class="col_three_fifth nobottommargin">
+														<div class="ipost clearfix">
+															<div class="entry-image">
+																<a href="/<?php echo $objResult["seofriendlyname"] ?>/<?php echo $objResult["seofriendly"] ?>.bmg-club"><img class="image_fade" src="/eventnewsactivitypic/<?php echo $objResult["bigpic"] ?>" alt="Image"></a>
 															</div>
+
+															<div class="entry-title">
+																<h3><a href="/<?php echo $objResult["seofriendlyname"] ?>/<?php echo $objResult["seofriendly"] ?>.bmg-club" style="font-family: 'Kanit', sans-serif;">สุขภาพดี เที่ยวฟรี มีเงินใช้ ที่ เกาหลี</a></h3>
+															</div>
+
 															<ul class="entry-meta clearfix">
+																<li style="font-family: 'Kanit', sans-serif;"><i class="icon-calendar3"></i> <?php echo $objResult["Datehead"] ?></li>
+																<li style="font-family: 'Kanit', sans-serif;"><a href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club#comments"><i class="icon-comments"></i> <fb:comments-count href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club"></fb:comments-count> ความคิดเห็น</a></li>
 															</ul>
+
+															<div class="entry-content">
+																<p style="font-family: 'Kanit', sans-serif;"><?php echo $objResult['Codefront'] ?></p>
+															</div>
+
 														</div>
 													</div>
+													<div class="col_two_fifth col_last nobottommargin">
+														<?php
+													}
+													$SQL = "SELECT * FROM eventnewsactivity WHERE enaID < $getena and seofriendlyname LIKE '%$findname%' order by enaID DESC LIMIT 4";
+													$query = mysql_query($SQL);
+													while ($objResult = mysql_fetch_array($query)){
+														?>
+
+														<div class="spost clearfix">
+															<div class="entry-image">
+																<a href="vietnam-bmgclub-activity.php"><img class="image_fade" src="/eventnewsactivitypic/<?php echo $objResult["smallpic"] ?>" alt="Image"></a>
+															</div>
+															<div class="entry-c">
+																<div class="entry-title">
+																	<h4><a href="vietnam-bmgclub-activity.php" style="font-family: 'Kanit', sans-serif;">สุขภาพดี เที่ยวฟรี มีเงินใช้ ที่ เวียดนาม</a></h4>
+																</div>
+																<ul class="entry-meta clearfix">
+																	<li class="color"><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>
+
+																</ul>
+															</div>
+														</div>
+
+														<?php
+													}
+
+													?>
 
 													<div class="spost clearfix">
 														<div class="entry-image">
-															<a href="video-movement-all.php"><img class="image_fade" src="images/magazine/small/more.jpg" alt="Image"></a>
+															<a href="activity-movement-all.php"><img class="image_fade" src="images/magazine/small/more.jpg" alt="Image"></a>
 														</div>
 														<div class="entry-c">
 															<div class="entry-title">
-																<h4><a href="events-activity-all.php">More+</a></h4>
+																<h4><a href="movement-activity-all.php">More+</a></h4>
 															</div>
 														</div>
 													</div>
@@ -680,38 +728,75 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 
 											<div class="tab-content clearfix" id="tabs-news-5">
 
-												<div class="col_three_fifth nobottommargin">
-													<div class="ipost clearfix">
-														<div class="entry-image">
-															<iframe width="100%" height="250" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/267187793&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-														</div>
-														<div class="entry-title">
-															<h3><a href="bmg-vstar-movement-music.php" style="font-family: 'Kanit', sans-serif;">สานใจ BMG V-STAR <i class="icon-star3"></i> BMG CLUB</a></h3>
-														</div>
-														<ul class="entry-meta clearfix">
-															<li style="font-family: 'Kanit', sans-serif;"><i class="icon-calendar3"></i> 6 มิถุนายน 2559</li>
-														</ul>
-														<div class="entry-content">
-															<p style="font-family: 'Kanit', sans-serif;">เพลงสานใจ BMG V-STAR "คือพลังสานใจให้เป็นหนึ่งเดียวสู่ระบบ V-STARS ที่แข็งแกร่งและมั่นคงแห่งเดียวในโลกที่BMG.CLUB ธุรกิจสีขาวเท่านั้น"<br>เนื้อหา คำร้อง.. เอกวัฒน์ อำไพ<br>เรียบเรียงและทำนอง.. ประณัฐชัย คัมภิรานนท์<br>ขับร้องโดยทีมงาน.. BMG CLUB</p>
+												<?php
+												$findname = 'activity';
+												$SQL = "SELECT * FROM eventnewsactivity WHERE seofriendlyname LIKE '%$findname%' order by enaID DESC LIMIT 1";
+												$query = mysql_query($SQL);
+												while ($objResult = mysql_fetch_array($query)){
+													$getena = $objResult["enaID"];
+
+													?>
+
+													<div class="col_three_fifth nobottommargin">
+														<div class="ipost clearfix">
+															<div class="entry-image">
+																<a href="/<?php echo $objResult["seofriendlyname"] ?>/<?php echo $objResult["seofriendly"] ?>.bmg-club"><img class="image_fade" src="/eventnewsactivitypic/<?php echo $objResult["bigpic"] ?>" alt="Image"></a>
+															</div>
+
+															<div class="entry-title">
+																<h3><a href="/<?php echo $objResult["seofriendlyname"] ?>/<?php echo $objResult["seofriendly"] ?>.bmg-club" style="font-family: 'Kanit', sans-serif;">สุขภาพดี เที่ยวฟรี มีเงินใช้ ที่ เกาหลี</a></h3>
+															</div>
+
+															<ul class="entry-meta clearfix">
+																<li style="font-family: 'Kanit', sans-serif;"><i class="icon-calendar3"></i> <?php echo $objResult["Datehead"] ?></li>
+																<li style="font-family: 'Kanit', sans-serif;"><a href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club#comments"><i class="icon-comments"></i> <fb:comments-count href="http://bmg-club.com/<?php echo $objResult['seofriendlyname'] ?>/<?php echo $objResult['seofriendly'] ?>.bmg-club"></fb:comments-count> ความคิดเห็น</a></li>
+															</ul>
+
+															<div class="entry-content">
+																<p style="font-family: 'Kanit', sans-serif;"><?php echo $objResult['Codefront'] ?></p>
+															</div>
+
 														</div>
 													</div>
-												</div>
+													<div class="col_two_fifth col_last nobottommargin">
+														<?php
+													}
+													$SQL = "SELECT * FROM eventnewsactivity WHERE enaID < $getena and seofriendlyname LIKE '%$findname%' order by enaID DESC LIMIT 4";
+													$query = mysql_query($SQL);
+													while ($objResult = mysql_fetch_array($query)){
+														?>
 
-												<div class="col_two_fifth col_last nobottommargin">
+														<div class="spost clearfix">
+															<div class="entry-image">
+																<a href="vietnam-bmgclub-activity.php"><img class="image_fade" src="/eventnewsactivitypic/<?php echo $objResult["smallpic"] ?>" alt="Image"></a>
+															</div>
+															<div class="entry-c">
+																<div class="entry-title">
+																	<h4><a href="vietnam-bmgclub-activity.php" style="font-family: 'Kanit', sans-serif;">สุขภาพดี เที่ยวฟรี มีเงินใช้ ที่ เวียดนาม</a></h4>
+																</div>
+																<ul class="entry-meta clearfix">
+																	<li class="color"><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>
+
+																</ul>
+															</div>
+														</div>
+
+														<?php
+													}
+
+													?>
 
 													<div class="spost clearfix">
 														<div class="entry-image">
-															<a href="music-movement-all.php"><img class="image_fade" src="images/magazine/small/more.jpg" alt="Image"></a>
+															<a href="activity-movement-all.php"><img class="image_fade" src="images/magazine/small/more.jpg" alt="Image"></a>
 														</div>
 														<div class="entry-c">
 															<div class="entry-title">
-																<h4><a href="events-activity-all.php">More+</a></h4>
+																<h4><a href="movement-activity-all.php">More+</a></h4>
 															</div>
 														</div>
 													</div>
-
 												</div>
-
 											</div>
 
 										</div>

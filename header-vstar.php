@@ -30,6 +30,7 @@
         </li><!-- .mega-menu end -->
 
           <li><a href="newlist.php"><div style="font-family: 'Kanit', sans-serif;">ดูตารางรายชื่อ</div><span>Lets Start</span></a></li>
+          <li><a href="add_blog.php"><div style="font-family: 'Kanit', sans-serif;">เพิ่มข่าว</div><span>Lets Start</span></a></li>
 
     </nav><!-- #primary-menu end -->
 
