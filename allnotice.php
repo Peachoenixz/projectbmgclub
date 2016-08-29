@@ -110,7 +110,7 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
                 while($objResult = mysql_fetch_array($objQuery))
                 {
                   ?>
-							<div class="entry bf-image clearfix">
+							<div class="entry <?php echo $objResult["datafilter"]; ?> clearfix">
 								<div class="entry-image">
 									<a href="/eventnewsactivitypic/<?php echo $objResult["bigpicfront"]; ?>" data-lightbox="image"><img class="image_fade" src="/eventnewsactivitypic/<?php echo $objResult["bigpicfront"]; ?>" alt="<?php echo $objResult["alt23"]; ?>"></a>
 								</div>
@@ -209,6 +209,8 @@ $title = 'BMG CLUB | ไลฟ์สไตล์เหนือระดับ �
 									<li><a href="#" data-filter=".bf-news"><div>ข่าวสารทั่วไป</div></a></li>
 									<li><a href="#" data-filter=".bf-activity"><div>กิจกรรม</div></a></li>
 									<li><a href="#" data-filter=".bf-event"><div>อีเวนท์</div></a></li>
+									<li><a href="#" data-filter=".bf-video"><div>วีดีโอ</div></a></li>
+									<li><a href="#" data-filter=".bf-music"><div>เพลง</div></a></li>
 								</ul>
 
 							</div>
